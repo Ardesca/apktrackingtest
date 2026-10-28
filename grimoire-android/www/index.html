@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080406">
+  <title>Grimoire de Fer</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <!-- Couloir de voûtes d'ogives, généré par app.js -->
+    <div id="vault" class="vault" aria-hidden="true"></div>
+    <h1>Grimoire de Fer</h1>
+    <p class="tagline">Maison de la force &middot; Séances &amp; rituels</p>
+    <nav class="tabs">
+      <button class="tab active" data-tab="bestiaire">Bestiaire</button>
+      <button class="tab" data-tab="programme">Programme</button>
+      <button class="tab" data-tab="suivi">Suivi</button>
+    </nav>
+    <div id="status" class="status"></div>
+  </header>
+
+  <main>
+    <!-- BESTIAIRE : base d'exercices -->
+    <section id="bestiaire" class="panel active">
+      <h2>Le Bestiaire des exercices</h2>
+      <form id="exo-form" class="card form-grid">
+        <input type="hidden" name="id">
+        <label>Nom
+          <input name="name" required placeholder="Ex. Squat bulgare">
+        </label>
+        <label>Muscle ciblé
+          <input name="muscle" list="muscles" placeholder="Ex. Jambes">
+          <datalist id="muscles">
+            <option>Pectoraux</option><option>Dos</option><option>Épaules</option>
+            <option>Biceps</option><option>Triceps</option><option>Jambes</option>
+            <option>Fessiers</option><option>Abdos</option><option>Mollets</option>
+          </datalist>
+        </label>
+        <label>Matériel
+          <input name="equipment" placeholder="Barre, haltères, poulie...">
+        </label>
+        <label class="wide">Notes
+          <input name="notes" placeholder="Conseils d'exécution">
+        </label>
+        <div class="actions wide">
+          <button class="btn primary" type="submit">Invoquer l'exercice</button>
+          <button class="btn" type="button" id="exo-cancel" hidden>Annuler</button>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <input id="exo-search" type="search" placeholder="Chercher dans le bestiaire...">
+      </div>
+      <div id="exo-list" class="grid"></div>
+    </section>
+
+    <!-- PROGRAMME : programme > semaines > séances > exercices > séries -->
+    <section id="programme" class="panel">
+      <h2>Le Programme</h2>
+
+      <div class="toolbar">
+        <select id="prog-select" aria-label="Programme"></select>
+        <button class="btn" id="prog-new">Nouveau programme</button>
+        <button class="btn" id="prog-rename">Renommer</button>
+        <button class="btn danger" id="prog-delete">Supprimer</button>
+      </div>
+
+      <div id="week-bar" class="week-bar"></div>
+
+      <form id="session-form" class="card form-grid" hidden>
+        <label class="grow">Nom de la séance
+          <input name="name" required placeholder="Ex. Push, Jambes, Haut du corps...">
+        </label>
+        <label>Jour (facultatif)
+          <select name="day">
+            <option value="">-</option>
+            <option>Lundi</option><option>Mardi</option><option>Mercredi</option>
+            <option>Jeudi</option><option>Vendredi</option><option>Samedi</option><option>Dimanche</option>
+          </select>
+        </label>
+        <div class="actions end">
+          <button class="btn primary" type="submit">Ajouter la séance</button>
+        </div>
+      </form>
+
+      <div id="prog-view"></div>
+    </section>
+
+    <!-- SUIVI -->
+    <section id="suivi" class="panel">
+      <h2>Le Suivi</h2>
+      <div class="toolbar">
+        <select id="suivi-week" aria-label="Semaine"></select>
+      </div>
+      <div id="suivi-view"></div>
+      <h3 class="sub">Progression par exercice</h3>
+      <div id="stats"></div>
+    </section>
+  </main>
+
+  <footer>
+    <button class="btn" id="export">Exporter (JSON)</button>
+    <label class="btn" for="import">Importer</label>
+    <input id="import" type="file" accept="application/json" hidden>
+    <p>Grimoire de Fer</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

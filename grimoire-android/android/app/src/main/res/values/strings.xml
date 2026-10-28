@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Grimoire de Fer</string>
+    <string name="title_activity_main">Grimoire de Fer</string>
+    <string name="package_name">com.grimoirefer.app</string>
+    <string name="custom_url_scheme">com.grimoirefer.app</string>
+</resources>

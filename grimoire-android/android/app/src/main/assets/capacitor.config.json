@@ -1,0 +1,12 @@
+{
+	"appId": "com.grimoirefer.app",
+	"appName": "Grimoire de Fer",
+	"webDir": "www",
+	"backgroundColor": "#080406",
+	"plugins": {
+		"SystemBars": {
+			"style": "DARK",
+			"insetsHandling": "native"
+		}
+	}
+}
